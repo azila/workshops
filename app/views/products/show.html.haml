@@ -18,8 +18,14 @@
 %h3 Reviews
 = render 'reviews/form'
 
+%br
 = render reviews
 
-= link_to 'Edit', edit_category_product_path(category.id, product.id)
+%br
+= link_to category_products_path, class: 'btn btn-link' do              
+  %span.glyphicon.glyphicon-backward
+  Back
 \|
-= link_to 'Back', category_products_path, class: 'btn btn-primary'
+= link_to edit_category_product_path(category.id, product.id), class: 'btn btn-link' do              
+  %span.glyphicon.glyphicon-edit
+  Edit

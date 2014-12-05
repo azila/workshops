@@ -2,6 +2,10 @@
 
 = render 'form'
 
-= link_to 'Show', category_product_path(category, product)
+= link_to category_products_path(category), class: 'btn btn-link' do              
+  %span.glyphicon.glyphicon-backward
+  Back
 \|
-= link_to 'Back', category_path(category)
+= link_to category_product_path(category, product), class: 'btn btn-link' do              
+  %span.glyphicon.glyphicon-eye-open
+  Show

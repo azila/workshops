@@ -1,1 +1,35 @@
 @import "bootstrap";
+
+body
+{
+  background-image: image-url("winter.jpeg");
+  background-size: 100%;
+  background-repeat:no-repeat;
+  display: compact;
+}
+
+.navbar-default {
+  background-color: #5db3e4;
+  border-color: #b7ddf4;
+  .navbar-text {
+    color: #525555;}
+  .navbar-right {
+    color: #525555;}
+}
+
+.btn-info { 
+  border-color: #5db3e4; 
+  background-color:#5db3e4
+}
+
+.navbar-header a{
+  color: #f8fdff !important;
+}
+
+.navbar-right a {
+  color: #f8fdff !important;
+}
+
+.navbar-text {
+  color: #f8fdff !important;
+}

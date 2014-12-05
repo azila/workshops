@@ -1,0 +1,59 @@
+%hr
+.container
+  .row
+    .col-sm-10
+      %h1
+        = @user.firstname
+        = @user.lastname
+  .row
+    .col-sm-3
+      %ul.list-group
+        %li.list-group-item.text-muted Profile
+        %li.list-group-item.text-right
+          %span.pull-left
+            %strong Joined
+          = @user.created_at.strftime("%Y-%m-%d %H:%M:%S")
+        %li.list-group-item.text-right
+          %span.pull-left
+            %strong Last seen
+          = @user.last_sign_in_at.strftime("%Y-%m-%d %H:%M:%S")
+        %li.list-group-item.text-right
+          %span.pull-left
+            %strong Email
+          = @user.email
+      .panel.panel-default
+        .panel-heading
+          Sign in ip
+          %i.fa.fa-link.fa-1x
+        .panel-body
+          = @user.current_sign_in_ip
+      %ul.list-group
+        %li.list-group-item.text-muted
+          Activity
+          %i.fa.fa-dashboard.fa-1x
+        %li.list-group-item.text-right
+          %span.pull-left
+            %strong Reviews
+          = @user.reviews.count
+        - if current_user.try(:admin?)
+          %li.list-group-item.text-right
+            %span.pull-left
+              %strong Products
+            = @user.products.count
+    .col-sm-9
+      %h1 Listing reviews
+
+      %table.table.table-striped
+        %thead
+          %tr
+            %th Date
+            %th Content
+            %th Rating
+
+        %tbody
+          - Review.where(user_id: @user.id).last(5).reverse.each do |review|
+            %tr
+              %td= review.created_at.strftime('%d-%m-%Y')
+              %td= review.content
+              %td= review.rating
+        %br

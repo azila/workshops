@@ -5,18 +5,18 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-User.create!(email: 'one@something.com', password: '12345678', firstname: 'One', lastname: 'First')
-User.create!(email: 'two@something.com', password: '12345678', firstname: 'Two', lastname: 'Second')
-User.create!(email: 'three@something.com', password: '12345678', firstname: 'Three', lastname: 'Third')
-User.create!(email: 'four@something.com', password: '12345678', firstname: 'Four', lastname: 'Fourth')
-User.create!(email: 'five@something.com', password: '12345678', firstname: 'Five', lastname: 'Fifth')
-User.create!(email: 'six@something.com', password: '87654321', firstname: 'Six', lastname: 'Sixth', admin: true)
+User.create!(email: 'santa.claus@christmas.com', password: '87654321', firstname: 'Santa', lastname: 'Claus', admin: true)
+User.create!(email: 'swiety.mikolaj@christmas.com', password: '12345678', firstname: 'Swiety', lastname: 'Mikolaj')
+User.create!(email: 'father.frost@christmas.com', password: '12345678', firstname: 'Father', lastname: 'Frost')
+User.create!(email: 'pere.noel@christmas.com', password: '12345678', firstname: 'Pere', lastname: 'Noel')
+User.create!(email: 'babbo.natale@christmas.com', password: '12345678', firstname: 'Babbo', lastname: 'Natale')
+User.create!(email: 'yule.gnome@christmas.com', password: '12345678', firstname: 'Yule', lastname: 'Gnome', admin: true)
 
-Category.create!(name: 'Series')
+Category.create!(name: 'Gifts for good children')
+Category.create!(name: 'Gifts for disobedient children')
 
-Product.create!(title: 'The Big Bang Theory', description: 'Mensa-fied best friends and roommates Leonard and Sheldon, 
-          physicists who work at the California Institute of Technology...', price: '100.00', category_id: 1, user_id: 1)
-Product.create!(title: 'Breaking Bad', description: 'Mild-mannered high school chemistry teacher Walter White thinks his
-          life cannot get much worse...', price: '100.00', category_id: 1, user_id: 1)
-Product.create!(title: 'House of Cards', description: 'U.S. Rep. Francis Underwood of South Carolina starts out as a
-          ruthless politician...', price: '100.00', category_id: 1, user_id: 1)
+Product.create!(title: 'Dollhouse', description: 'Excellent quality and distinctive detailing throughout the interior and exterior of this house...', 
+  price: '99.00', category_id: 1, user_id: 1)
+Product.create!(title: 'Red Retro Pedal Car', description: 'This Red Retro Pedal Car a perfect starter car for your aspiring racer!', 
+  price: '199.00', category_id: 1, user_id: 1)
+Product.create!(title: '3D Floor Puzzle', description: 'This 46-piece puzzle is full of surprises!', price: '89.00', category_id: 1, user_id: 1)
