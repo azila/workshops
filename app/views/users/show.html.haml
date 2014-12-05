@@ -1,36 +1,23 @@
-%hr
+
 .container
   .row
     .col-sm-10
       %h1
+        =image_tag  "Santa.jpg", class: "img-circle"
         = @user.firstname
         = @user.lastname
+      - if current_user.try(:admin?)
+        %p
+          %strong Admin
+
   .row
     .col-sm-3
       %ul.list-group
         %li.list-group-item.text-muted Profile
         %li.list-group-item.text-right
           %span.pull-left
-            %strong Joined
-          = @user.created_at.strftime("%Y-%m-%d %H:%M:%S")
-        %li.list-group-item.text-right
-          %span.pull-left
-            %strong Last seen
-          = @user.last_sign_in_at.strftime("%Y-%m-%d %H:%M:%S")
-        %li.list-group-item.text-right
-          %span.pull-left
             %strong Email
           = @user.email
-      .panel.panel-default
-        .panel-heading
-          Sign in ip
-          %i.fa.fa-link.fa-1x
-        .panel-body
-          = @user.current_sign_in_ip
-      %ul.list-group
-        %li.list-group-item.text-muted
-          Activity
-          %i.fa.fa-dashboard.fa-1x
         %li.list-group-item.text-right
           %span.pull-left
             %strong Reviews
@@ -40,20 +27,32 @@
             %span.pull-left
               %strong Products
             = @user.products.count
-    .col-sm-9
-      %h1 Listing reviews
 
+      %ul.list-group
+        %li.list-group-item.text-muted Additional info
+        %li.list-group-item.text-right
+          %span.pull-left
+            %strong Registered
+          = @user.created_at.strftime("%Y-%m-%d")
+        %li.list-group-item.text-right
+          %span.pull-left
+            %strong Last sign in
+          = @user.last_sign_in_at.strftime("%Y-%m-%d")
+
+    .col-sm-9
       %table.table.table-striped
         %thead
           %tr
-            %th Date
-            %th Content
+            %th Product
+            %th Review
             %th Rating
+            %th Date
 
         %tbody
           - Review.where(user_id: @user.id).last(5).reverse.each do |review|
             %tr
-              %td= review.created_at.strftime('%d-%m-%Y')
+              %td= review.product.title
               %td= review.content
               %td= review.rating
+              %td= review.created_at.strftime('%d-%m-%Y')
         %br
